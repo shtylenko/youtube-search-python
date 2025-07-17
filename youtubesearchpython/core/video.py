@@ -146,7 +146,7 @@ class VideoCore(RequestCore):
 
             if (getValue(responseSource, ['playabilityStatus', 'status']) == 'LOGIN_REQUIRED'):
                 self.__videoComponent = None
-                return {'status': 'LOGIN_REQUIRED'}
+                return {'error': 'LOGIN_REQUIRED'}
 
             component = {
                 'id': getValue(responseSource, ['videoDetails', 'videoId']),
