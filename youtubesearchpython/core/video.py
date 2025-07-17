@@ -139,6 +139,11 @@ class VideoCore(RequestCore):
                 responseSource = None
             if self.enableHTML:
                 responseSource = self.HTMLresponseSource
+
+            if (getValue(responseSource, ['videoDetails', 'videoId']) is None):
+                self.__videoComponent = None
+                return
+
             component = {
                 'id': getValue(responseSource, ['videoDetails', 'videoId']),
                 'title': getValue(responseSource, ['videoDetails', 'title']),
